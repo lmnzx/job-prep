@@ -6,7 +6,8 @@
 #include <math.h>
 #include <vector>
 
-std::vector<std::complex<double>> dft(std::vector<std::complex<double>> X) {
+std::vector<std::complex<double>> dft(std::vector<std::complex<double>> X)
+{
   // Determine no. of samples
   int N = X.size();
   int K = N;
@@ -19,9 +20,11 @@ std::vector<std::complex<double>> dft(std::vector<std::complex<double>> X) {
   output.reserve(K);
 
   // Loop through each k
-  for (int k = 0; k < K; k++) {
+  for (int k = 0; k < K; k++)
+  {
     intSum = std::complex<double>(0, 0);
-    for (int n = 0; n < N; n++) {
+    for (int n = 0; n < N; n++)
+    {
       double realPart = cos(((2 * M_PI) / N) * k * n);
       double imagPart = sin(((2 * M_PI) / N) * k * n);
       std::complex<double> w(realPart, -imagPart);
@@ -32,7 +35,8 @@ std::vector<std::complex<double>> dft(std::vector<std::complex<double>> X) {
   return output;
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
   // Create a test signal
   int N = 1000;
   std::vector<std::complex<double>> signal;
@@ -42,7 +46,8 @@ int main(int argc, char const *argv[]) {
   // double sigPhase = M_PI / 4.0;
   double sigPhase = 0.0;
 
-  for (int x = 0; x < N; ++x) {
+  for (int x = 0; x < N; ++x)
+  {
     auto currentSample =
         std::complex<double>(cos((2 * M_PI / static_cast<double>(N)) * sigK *
                                      static_cast<double>(x) +
@@ -61,7 +66,8 @@ int main(int argc, char const *argv[]) {
             << "k\t" << std::setw(12) << "Real\t" << std::setw(12) << "Imag"
             << std::endl;
 
-  for (int i = 0; i < 6; ++i) {
+  for (int i = 0; i < 6; ++i)
+  {
     std::cout << i << "\t" << std::setw(12)
               << Fx[i].real() / static_cast<double>(N) << "\t" << std::setw(12)
               << Fx[i].imag() / static_cast<double>(N) << std::endl;
