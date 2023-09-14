@@ -1,16 +1,18 @@
 #include <string>
 #include <unordered_map>
 
+using namespace std;
+
 class Solution
 {
 public:
-  bool isAnagram(std::string s, std::string t)
+  bool isAnagram(string s, string t)
   {
     if (s.size() != t.size())
       return false;
 
-    std::unordered_map<char, int> smap;
-    std::unordered_map<char, int> tmap;
+    unordered_map<char, int> tmap;
+    unordered_map<char, int> smap;
 
     for (int i = 0; i < s.size(); ++i)
     {
