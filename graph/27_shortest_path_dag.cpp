@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// implements the topological sort
 void topoSort(int node, vector<pair<int, int>> adj[], vector<int> &vis,
               stack<int> &st) {
   vis[node] = 1;
@@ -18,6 +19,7 @@ void topoSort(int node, vector<pair<int, int>> adj[], vector<int> &vis,
 }
 
 vector<int> shortestPath(int N, int M, vector<vector<int>> &edges) {
+  // implement the graph using adjacency list
   vector<pair<int, int>> adj[N];
   for (int i = 0; i < M; i++) {
     int u = edges[i][0];
@@ -27,9 +29,11 @@ vector<int> shortestPath(int N, int M, vector<vector<int>> &edges) {
   }
 
   // find the topoSort
-  // int vis[N] = {0};
+  // visted vector
   vector<int> vis(N, 0);
 
+  // using DFS to find the topoSort
+  // stack to store the topoSort
   stack<int> st;
   for (int i = 0; i < N; i++) {
     if (!vis[i]) {
