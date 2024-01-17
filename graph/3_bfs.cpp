@@ -35,7 +35,7 @@ vector<int> bfs(int V, vector<int> adj[]) {
   return bfs;
 }
 
-int main(int argc, char *argv[]) { 
+int main(int argc, char *argv[]) {
   vector<int> adj[6];
   adj[0].push_back(1);
   adj[1].push_back(0);
@@ -50,6 +50,5 @@ int main(int argc, char *argv[]) {
   for (auto it : res) {
     cout << it << " ";
   }
-  return 0; 
+  return 0;
 }
-
